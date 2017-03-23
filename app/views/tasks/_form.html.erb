@@ -1,15 +1,6 @@
 <div class="row">
   <div class="col-xs-6">
 <%= form_for(@task) do |f| %>
-  <% if task.errors.any? %>
-    <div class="alert alert-warning">
-      <ul>
-        <% task.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="form-group">
     <%= f.label :content, 'タスク' %>
