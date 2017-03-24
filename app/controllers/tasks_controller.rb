@@ -31,6 +31,9 @@ class TasksController < ApplicationController
   end
 
   def edit
+    if correct_user === false
+      flash[:danger] = '権限がありません。'
+    end
   end
 
   def update
@@ -66,6 +69,7 @@ class TasksController < ApplicationController
     @task = current_user.tasks.find_by(id: params[:id])
     unless @task
       redirect_to root_path
+      return false
     end
   end
 end
